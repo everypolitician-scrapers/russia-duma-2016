@@ -8,8 +8,8 @@ require 'scraperwiki'
 
 require_rel 'lib'
 
-require 'open-uri/cached'
-# require 'scraped_page_archive/open-uri'
+# require 'open-uri/cached'
+require 'scraped_page_archive/open-uri'
 
 LIST_PAGE = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
 
