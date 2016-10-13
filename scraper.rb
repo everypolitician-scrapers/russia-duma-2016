@@ -15,3 +15,8 @@ LIST_PAGE = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B
 
 data = AllMembersPage.new(LIST_PAGE).to_h
 warn "Found #{data[:members].count} members"
+data[:members].each do |mem|
+  data = mem.merge(MemberPage.new(mem[:source]).to_h)
+  warn data
+  # ScraperWiki.save_sqlite(%i(id), data)
+end
