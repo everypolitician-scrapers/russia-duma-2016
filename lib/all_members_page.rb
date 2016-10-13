@@ -9,7 +9,7 @@ class AllMembersPage < Page
         name:    tds[1].text.tidy,
         faction: tds[2].text.sub('Фракция ', '').tidy,
         area:    tds[4].text.tidy,
-        image:   tds[0].css('img/@src').text,
+        image:   absolute_url(tds[0].css('img/@src').text).to_s,
         source:  absolute_url(tds[1].css('a/@href').text).to_s,
       }
     end
