@@ -18,5 +18,5 @@ warn "Found #{data[:members].count} members"
 data[:members].each do |mem|
   data = mem.merge(MemberPage.new(mem[:source]).to_h)
   warn data
-  # ScraperWiki.save_sqlite(%i(id), data)
+  ScraperWiki.save_sqlite(%i(id), data)
 end
