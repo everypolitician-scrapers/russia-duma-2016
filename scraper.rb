@@ -4,19 +4,32 @@
 
 require 'pry'
 require 'require_all'
+require 'scraped'
 require 'scraperwiki'
 
 require_rel 'lib'
 
 # require 'open-uri/cached'
+# OpenURI::Cache.cache_path = '.cache'
 require 'scraped_page_archive/open-uri'
 
-LIST_PAGE = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
+class String
+  def tidy
+    gsub(/[[:space:]]+/, ' ').strip
+  end
+end
 
-data = AllMembersPage.new(LIST_PAGE).to_h
-warn "Found #{data[:members].count} members"
-data[:members].each do |mem|
-  data = mem.merge(MemberPage.new(mem[:source]).to_h)
-  # warn data
+def scrape(h)
+  url, klass = h.to_a.first
+  klass.new(response: Scraped::Request.new(url: url).response)
+end
+
+url = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
+page = scrape(url => AllMembersPage)
+
+warn "Found #{page.members.count} members"
+page.members.each do |mem|
+  data = mem.merge scrape(mem[:source] => MemberPage).to_h
+  # puts data
   ScraperWiki.save_sqlite(%i(id), data)
 end
