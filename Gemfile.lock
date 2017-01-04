@@ -1,8 +1,11 @@
 GIT
-  remote: https://github.com/everypolitician/field_serializer.git
-  revision: 26d1a15080a4a0ab821ce74652afc16ff86883d5
+  remote: https://github.com/everypolitician/scraped.git
+  revision: 0b7474c54ee395fd9bec30a64702255d093f9b31
   specs:
-    field_serializer (0.1.0)
+    scraped (0.1.0)
+      field_serializer (>= 0.3.0)
+      nokogiri
+      require_all
 
 GIT
   remote: https://github.com/everypolitician/scraped_page_archive.git
@@ -27,29 +30,37 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     ast (2.3.0)
-    coderay (1.1.0)
-    colorize (0.7.7)
+    coderay (1.1.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    field_serializer (0.3.0)
     git (1.3.0)
-    hashdiff (0.3.1)
-    httpclient (2.6.0.1)
+    hashdiff (0.3.0)
+    httpclient (2.8.2.4)
     method_source (0.8.2)
-    mini_portile (0.6.2)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    mini_portile2 (2.1.0)
+    minispec-metadata (2.0.0)
+      minitest
+    minitest (5.10.1)
+    minitest-vcr (1.4.0)
+      minispec-metadata (~> 2.0)
+      minitest (>= 4.7.5)
+      vcr (>= 2.9)
+    nokogiri (1.7.0)
+      mini_portile2 (~> 2.1.0)
     open-uri-cached (0.0.5)
-    parser (2.3.1.4)
+    parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)
-    pry (0.10.1)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.4)
     rainbow (2.1.0)
+    rake (12.0.0)
     require_all (1.3.3)
-    rubocop (0.43.0)
+    rubocop (0.46.0)
       parser (>= 2.3.1.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -58,10 +69,10 @@ GEM
     ruby-progressbar (1.8.1)
     safe_yaml (1.0.4)
     slop (3.6.0)
-    sqlite3 (1.3.10)
-    sqlite_magic (0.0.3)
+    sqlite3 (1.3.12)
+    sqlite_magic (0.0.6)
       sqlite3
-    unicode-display_width (1.1.1)
+    unicode-display_width (1.1.2)
     vcr (3.0.3)
     vcr-archive (0.3.0)
       vcr (~> 3.0.2)
@@ -75,18 +86,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  colorize
-  field_serializer!
+  minitest
+  minitest-vcr
   nokogiri
   open-uri-cached
   pry
-  require_all
+  rake
   rubocop
+  scraped!
   scraped_page_archive!
   scraperwiki!
+  vcr
+  webmock
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.3p222
 
 BUNDLED WITH
-   1.13.4
+   1.13.6
