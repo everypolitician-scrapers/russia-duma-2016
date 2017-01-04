@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'page'
+require 'scraped'
 
-class MemberPage < Page
+class MemberPage < Scraped::HTML
   field :id do
     Pathname.new(url.to_s).basename.to_s
   end
