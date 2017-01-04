@@ -19,12 +19,17 @@ class String
   end
 end
 
+def scrape(h)
+  url, klass = h.to_a.first
+  klass.new(response: Scraped::Request.new(url: url).response)
+end
+
 url = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
-page = AllMembersPage.new(response: Scraped::Request.new(url: url).response)
+page = scrape(url => AllMembersPage)
 
 warn "Found #{page.members.count} members"
 page.members.each do |mem|
-  data = mem.merge MemberPage.new(response: Scraped::Request.new(url: mem[:source]).response).to_h
-  # warn data
+  data = mem.merge scrape(mem[:source] => MemberPage).to_h
+  # puts data
   ScraperWiki.save_sqlite(%i(id), data)
 end
