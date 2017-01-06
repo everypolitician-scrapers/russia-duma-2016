@@ -26,8 +26,9 @@ end
 
 url = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
 page = scrape(url => AllMembersPage)
-
 warn "Found #{page.members.count} members"
+
+ScraperWiki.sqliteexecute('DELETE FROM data') rescue nil
 page.members.each do |mem|
   data = mem.merge scrape(mem[:source] => MemberPage).to_h
   # puts data
