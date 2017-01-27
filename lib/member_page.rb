@@ -7,6 +7,10 @@ class MemberPage < Scraped::HTML
     Pathname.new(url.to_s).basename.to_s
   end
 
+  field :name do
+    noko.at_css('.hc-r h1').text
+  end
+
   field :birth_date do
     date_from(noko.css('p.deputat-info-date').text)
   end
