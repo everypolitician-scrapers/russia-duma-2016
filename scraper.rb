@@ -19,12 +19,11 @@ def scrape(h)
 end
 
 url = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
-page = scrape(url => AllMembersPage)
-warn "Found #{page.members.count} members"
+member_urls = scrape(url => AllMembersPage).member_urls
+warn "Found #{member_urls.count} members"
 
 ScraperWiki.sqliteexecute('DELETE FROM data') rescue nil
-page.members.each do |mem|
-  data = mem.merge scrape(mem[:source] => MemberPage).to_h
-  # puts data
+member_urls.each do |mem_url|
+  data = scrape(mem_url => MemberPage).to_h
   ScraperWiki.save_sqlite(%i(id), data)
 end
