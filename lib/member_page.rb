@@ -10,7 +10,7 @@ class MemberPage < Scraped::HTML
   end
 
   field :name do
-    noko.at_css('.hc-r h1').text
+    noko.at_css('.hc-r h1').text.tidy
   end
 
   field :image do
