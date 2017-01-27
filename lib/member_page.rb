@@ -3,12 +3,18 @@
 require 'scraped'
 
 class MemberPage < Scraped::HTML
+  decorator Scraped::Response::Decorator::AbsoluteUrls
+
   field :id do
     Pathname.new(url.to_s).basename.to_s
   end
 
   field :name do
     noko.at_css('.hc-r h1').text
+  end
+
+  field :image do
+    noko.css('.deputat-info-left img/@src').text
   end
 
   field :birth_date do
