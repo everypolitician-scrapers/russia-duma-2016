@@ -17,6 +17,10 @@ class MemberPage < Scraped::HTML
     noko.css('.deputat-info-left img/@src').text
   end
 
+  field :source do
+    url.to_s
+  end
+
   field :birth_date do
     date_from(noko.css('p.deputat-info-date').text)
   end
