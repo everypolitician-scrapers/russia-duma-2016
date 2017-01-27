@@ -18,8 +18,12 @@ def scrape(h)
   klass.new(response: Scraped::Request.new(url: url).response)
 end
 
+CEASED_MEMBER_IDS = %w(1756605 1756928 1757002).freeze
+ceased_member_urls = CEASED_MEMBER_IDS.map { |id| "http://www.duma.gov.ru/structure/deputies/#{id}/" }
+
 url = 'http://www.duma.gov.ru/structure/deputies/?letter=%D0%92%D1%81%D0%B5'
-member_urls = scrape(url => AllMembersPage).member_urls
+current_member_urls = scrape(url => AllMembersPage).member_urls
+member_urls = current_member_urls + ceased_member_urls
 warn "Found #{member_urls.count} members"
 
 ScraperWiki.sqliteexecute('DELETE FROM data') rescue nil
