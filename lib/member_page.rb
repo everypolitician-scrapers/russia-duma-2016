@@ -29,6 +29,10 @@ class MemberPage < Scraped::HTML
     date_from(noko.xpath('//p[contains(.,"Дата начала полномочий")]').text)
   end
 
+  field :end_date do
+    date_from(noko.xpath('//p[contains(.,"Дата окончания полномочий")]').text)
+  end
+
   field :area_id do
     area_id_from(noko.xpath('//p[contains(.,"избирательного округа")]').text)
   end
