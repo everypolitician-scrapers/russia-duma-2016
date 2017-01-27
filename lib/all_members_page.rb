@@ -16,4 +16,8 @@ class AllMembersPage < Scraped::HTML
       }
     end
   end
+
+  field :member_urls do
+    noko.xpath('id("lists_list_elements_35")//tr[td]//td[1]//a/@href').map(&:text)
+  end
 end
