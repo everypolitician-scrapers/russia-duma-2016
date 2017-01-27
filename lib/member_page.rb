@@ -3,8 +3,22 @@
 require 'scraped'
 
 class MemberPage < Scraped::HTML
+  decorator Scraped::Response::Decorator::AbsoluteUrls
+
   field :id do
     Pathname.new(url.to_s).basename.to_s
+  end
+
+  field :name do
+    noko.at_css('.hc-r h1').text
+  end
+
+  field :image do
+    noko.css('.deputat-info-left img/@src').text
+  end
+
+  field :source do
+    url.to_s
   end
 
   field :birth_date do
@@ -13,6 +27,10 @@ class MemberPage < Scraped::HTML
 
   field :start_date do
     date_from(noko.xpath('//p[contains(.,"Дата начала полномочий")]').text)
+  end
+
+  field :end_date do
+    date_from(noko.xpath('//p[contains(.,"Дата окончания полномочий")]').text)
   end
 
   field :area_id do
