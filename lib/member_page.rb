@@ -21,6 +21,14 @@ class MemberPage < Scraped::HTML
     url.to_s
   end
 
+  field :faction do
+    noko.xpath('.//div[@class = "deputat-info-right"]/ul[@class = "list-ul1"][1]//a[1]/@title').text.tidy
+  end
+
+  field :area do
+    noko.xpath('.//div[@class = "deputat-info-right"]/ul[@class = "list-ul1"][2]/li').text.tidy
+  end
+
   field :birth_date do
     date_from(noko.css('p.deputat-info-date').text)
   end
