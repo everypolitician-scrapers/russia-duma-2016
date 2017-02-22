@@ -20,13 +20,13 @@ response:
     Server:
     - nginx
     Date:
-    - Tue, 21 Feb 2017 06:07:33 GMT
+    - Wed, 22 Feb 2017 12:51:14 GMT
     Content-Type:
     - text/html; charset=UTF-8
     Connection:
     - keep-alive
     Set-Cookie:
-    - PHPSESSID=333ejp2ednekak8tqnesrqkm90; path=/; domain=duma.gov.ru; HttpOnly
+    - PHPSESSID=ur0558gaqlae5m2icq7ocb1gh5; path=/; domain=duma.gov.ru; HttpOnly
     Expires:
     - Thu, 19 Nov 1981 08:52:00 GMT
     Cache-Control:
@@ -34,8 +34,8 @@ response:
     Pragma:
     - no-cache
     Content-Length:
-    - '12312'
+    - '12303'
   body:
     encoding: ASCII-8BIT
   http_version: 
-recorded_at: Tue, 21 Feb 2017 06:06:22 GMT
+recorded_at: Wed, 22 Feb 2017 12:50:02 GMT
