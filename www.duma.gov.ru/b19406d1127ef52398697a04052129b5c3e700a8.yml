@@ -1,0 +1,41 @@
+---
+request:
+  method: get
+  uri: http://www.duma.gov.ru/structure/deputies/1876473/
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - "*/*"
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Server:
+    - nginx
+    Date:
+    - Mon, 13 Mar 2017 03:17:54 GMT
+    Content-Type:
+    - text/html; charset=UTF-8
+    Connection:
+    - keep-alive
+    Set-Cookie:
+    - PHPSESSID=8p3hlrridntcabc607fm3b91s1; path=/; domain=duma.gov.ru; HttpOnly
+    Expires:
+    - Thu, 19 Nov 1981 08:52:00 GMT
+    Cache-Control:
+    - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+    Pragma:
+    - no-cache
+    Content-Length:
+    - '12082'
+  body:
+    encoding: ASCII-8BIT
+  http_version: 
+recorded_at: Mon, 13 Mar 2017 03:16:30 GMT
