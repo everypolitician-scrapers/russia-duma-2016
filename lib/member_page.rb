@@ -22,7 +22,10 @@ class MemberPage < Scraped::HTML
   end
 
   field :faction do
-    noko.xpath('.//div[@class = "deputat-info-right"]/ul[@class = "list-ul1"][1]//a[1]/@title').text.tidy
+    noko.xpath('.//div[@class = "deputat-info-right"]/ul[@class = "list-ul1"][1]//a[1]/@title')
+        .text
+        .delete('Фракция ')
+        .tidy
   end
 
   field :area do
