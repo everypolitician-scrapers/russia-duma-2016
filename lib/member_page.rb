@@ -50,8 +50,8 @@ class MemberPage < Scraped::HTML
 
   private
 
-  MONTHS = %w(_ января февраля марта апреля мая июня июля августа
-              сентября октября ноября декабря).freeze
+  MONTHS = %w[_ января февраля марта апреля мая июня июля августа
+              сентября октября ноября декабря].freeze
 
   def date_from(str)
     return unless md = str.to_s.match(/(\d{1,2}) (.*?) (\d{4})/)
