@@ -26,7 +26,7 @@ current_member_urls = scrape(url => AllMembersPage).member_urls
 member_urls = current_member_urls + ceased_member_urls
 warn "Found #{member_urls.count} members"
 
-ScraperWiki.sqliteexecute('DELETE FROM data') rescue nil
+ScraperWiki.sqliteexecute('DROP TABLE data') rescue nil
 member_urls.each do |mem_url|
   data = scrape(mem_url => MemberPage).to_h
   ScraperWiki.save_sqlite(%i[id], data)
