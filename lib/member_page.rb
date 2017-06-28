@@ -3,7 +3,7 @@
 require 'scraped'
 
 class MemberPage < Scraped::HTML
-  decorator Scraped::Response::Decorator::AbsoluteUrls
+  decorator Scraped::Response::Decorator::CleanUrls
 
   field :id do
     Pathname.new(url.to_s).basename.to_s

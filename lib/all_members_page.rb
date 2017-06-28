@@ -3,7 +3,7 @@
 require 'scraped'
 
 class AllMembersPage < Scraped::HTML
-  decorator Scraped::Response::Decorator::AbsoluteUrls
+  decorator Scraped::Response::Decorator::CleanUrls
 
   field :member_urls do
     noko.xpath('id("lists_list_elements_35")//tr[td]//td[1]//a/@href').map(&:text)
