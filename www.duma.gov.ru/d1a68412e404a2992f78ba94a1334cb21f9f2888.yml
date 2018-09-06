@@ -14,28 +14,22 @@ request:
     - Ruby
 response:
   status:
-    code: 200
-    message: OK
+    code: 301
+    message: Moved Permanently
   headers:
     Server:
     - nginx
     Date:
-    - Sat, 17 Mar 2018 02:54:24 GMT
+    - Thu, 06 Sep 2018 21:31:52 GMT
     Content-Type:
-    - text/html; charset=UTF-8
+    - text/html
+    Content-Length:
+    - '178'
     Connection:
     - keep-alive
-    Set-Cookie:
-    - PHPSESSID=o3d7us0b5o8knjn7sq5q5a9o85; path=/; domain=duma.gov.ru; HttpOnly
-    Expires:
-    - Thu, 19 Nov 1981 08:52:00 GMT
-    Cache-Control:
-    - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-    Pragma:
-    - no-cache
-    Content-Length:
-    - '14213'
+    Location:
+    - http://duma.gov.ru/structure/deputies/1756802/
   body:
-    encoding: ASCII-8BIT
+    encoding: UTF-8
   http_version: 
-recorded_at: Sat, 17 Mar 2018 02:52:56 GMT
+recorded_at: Thu, 06 Sep 2018 21:31:52 GMT
