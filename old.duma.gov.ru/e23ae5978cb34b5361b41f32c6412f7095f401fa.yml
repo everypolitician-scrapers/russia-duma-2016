@@ -1,0 +1,41 @@
+---
+request:
+  method: get
+  uri: http://old.duma.gov.ru/structure/deputies/1756674/
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - "*/*"
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Server:
+    - nginx
+    Date:
+    - Sun, 09 Sep 2018 11:07:10 GMT
+    Content-Type:
+    - text/html; charset=UTF-8
+    Connection:
+    - keep-alive
+    Set-Cookie:
+    - PHPSESSID=idihu8mpv4a70k9td1b43j7gn0; path=/; domain=old.duma.gov.ru; HttpOnly
+    Expires:
+    - Thu, 19 Nov 1981 08:52:00 GMT
+    Cache-Control:
+    - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+    Pragma:
+    - no-cache
+    Content-Length:
+    - '14453'
+  body:
+    encoding: ASCII-8BIT
+  http_version: 
+recorded_at: Sun, 09 Sep 2018 12:06:25 GMT
