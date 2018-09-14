@@ -25,8 +25,8 @@ current_member_urls = scrape(url => AllMembersPage).member_urls
 member_urls = current_member_urls + ceased_member_urls
 warn "Found #{member_urls.count} members"
 
+data = member_urls.map { |url| scrape(url => MemberPage).to_h }
+data.each { |mem| puts mem.reject { |_, v| v.to_s.empty? }.sort_by { |k, _| k }.to_h } if ENV['MORPH_DEBUG']
+
 ScraperWiki.sqliteexecute('DROP TABLE data') rescue nil
-member_urls.each do |mem_url|
-  data = scrape(mem_url => MemberPage).to_h
-  ScraperWiki.save_sqlite(%i[id], data)
-end
+ScraperWiki.save_sqlite(%i[id], data)
